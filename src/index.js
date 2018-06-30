@@ -32,8 +32,9 @@ module.exports = function(config) {
         if (typeof table === 'string') tables.push(table);
     });
 
+    var prefix = config.prefix || '';
     tables.forEach(function(zone) {
-        storage[zone] = getStorage(db, zone);
+        storage[zone] = getStorage(db, prefix + zone);
     });
 
     return storage;
